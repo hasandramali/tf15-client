@@ -3321,40 +3321,14 @@ void PM_Move( struct playermove_s *ppmove, int server )
 		pmove->friction = 1.0f;
 	}
 #ifdef CLIENT_DLL
-	extern void update_player_info(int onground, int inwater, int walking);
+    extern "C" void update_player_info( int onground, int inwater, int walking );
 
-	update_player_info(
-		pmove->onground != -1,
-		pmove->waterlevel > 1,
-		pmove->movetype == MOVETYPE_WALK
-	);
+    update_player_info(
+        pmove->onground != -1,
+        pmove->waterlevel > 1,
+        pmove->movetype == MOVETYPE_WALK
+    );
 #endif
-}
-
-void PM_Move( struct playermove_s *ppmove, int server )
-{
-	assert( pm_shared_initialized );
-
-	pmove = ppmove;
-
-	//pmove->Con_Printf( "PM_Move: %g, frametime %g, onground %i\n", pmove->time, pmove->frametime, pmove->onground );
-
-	PM_PlayerMove( ( server != 0 ) ? true : false );
-
-	if ( pmove->onground != -1 )
-	{
-		pmove->flags |= FL_ONGROUND;
-	}
-	else
-	{
-		pmove->flags &= ~FL_ONGROUND;
-	}
-
-	// Reset friction after each movement to FrictionModifier Triggers work still.
-	if ( pmove->movetype == MOVETYPE_WALK )
-	{
-		pmove->friction = 1.0f;
-        }
 }
 
 int PM_GetVisEntInfo( int ent )
