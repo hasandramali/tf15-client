@@ -1,0 +1,32 @@
+name: Build
+on:
+  push:
+    workflow_dispatch:
+
+jobs:
+  android:
+    name: Android
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          submodules: recursive
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'temurin'
+          cache: gradle
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+      - name: Build
+        run: ./gradlew assembleRelease
+        working-directory: android
+  
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: android
+          path: android/app/build/outputs/apk/release/
