@@ -135,7 +135,7 @@ static void handle_autojump( usercmd_t *cmd )
 	}
 }
 
-void update_player_info( int onground, int inwater, int walking )
+extern "C" void update_player_info( int onground, int inwater, int walking )
 {
 	autofuncs::player.onground = ( onground != 0 );
 	autofuncs::player.inwater  = ( inwater != 0 );
