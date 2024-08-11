@@ -887,7 +887,7 @@ int CHudAmmo::Draw( float flTime )
 		if ( gWR.HasAmmo( m_pWeapon ) )
 		{
 			UnpackRGB( r, g, b, RGB_REDISH );
-			ScaleColors( r, g, b, 127 );
+			ScaleColors( r, g, b, 131 );
 		}
 
 		SPR_Set( m_pWeapon->hInactive, r, g, b );
