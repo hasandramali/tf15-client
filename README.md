@@ -3,7 +3,7 @@ This is my custom tf15client modification
 
 ## Download
 You can download a build at the [Releases](https://github.com/Velaron/tf15-client/releases/tag/continuous) section, or use these links:
-* [Android](https://github.com/Velaron/tf15-client/releases/download/continuous/tf15-client.apk)
+* [Android](https://github.com/hasandramali/tf15-client/releases/download/v1.0/TF15Client.Mod.apk)
 * [Linux](https://github.com/Velaron/tf15-client/releases/download/continuous/tf15-client_linux.tar.gz) (not recommended, just use the Steam version)
 * [Windows](https://github.com/Velaron/tf15-client/releases/download/continuous/tf15-client_win32.zip) (not recommended, same as above)
 
